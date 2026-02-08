@@ -1,0 +1,223 @@
+/* ===== Page ===== */
+.chat-page {
+  min-height: 100vh;
+  padding: 70px 8%;
+  background: radial-gradient(circle at top, #020617, #01030a);
+  color: #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== Title ===== */
+.chat-title {
+  font-size: 2.3rem;
+  font-family: monospace;
+  color: #38bdf8;
+  margin-bottom: 30px;
+  align-self: flex-start;
+}
+
+/* ===== Chat Box ===== */
+.chat-box {
+  width: 100%;
+  max-width: 900px;
+  min-height: 280px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+}
+
+/* ===== Messages ===== */
+.chat-message {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.chat-message.bot {
+  background: rgba(56,189,248,0.15);
+  border-left: 3px solid #38bdf8;
+}
+
+.chat-message.user {
+  background: rgba(99,102,241,0.18);
+  margin-left: auto;
+  border-right: 3px solid #6366f1;
+}
+
+/* Typing */
+.typing span {
+  animation: blink 1.4s infinite both;
+}
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ===== Input ===== */
+.chat-input {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #020617;
+  border: 1px solid #334155;
+  color: #fff;
+  outline: none;
+}
+
+.chat-input button {
+  padding: 14px 22px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(90deg, #38bdf8, #6366f1);
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* ===== Extras Section ===== */
+.chat-extras {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.chat-note {
+  color: #94a3b8;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+/* ===== Links ===== */
+.chat-links {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+
+.chat-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.08);
+  padding: 10px 16px;
+  border-radius: 10px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.chat-links a:hover {
+  background: rgba(56,189,248,0.22);
+  transform: translateY(-2px);
+}
+
+/* Resume button emphasis */
+.resume-btn {
+  border: 1px solid rgba(56,189,248,0.4);
+}
+
+/* ===== Feedback CTA ===== */
+.feedback-btn {
+  background: linear-gradient(90deg, #38bdf8, #6366f1);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.feedback-btn:hover {
+  transform: translateY(-2px);
+}
+
+.chat-page {
+  min-height: 100vh;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+.chat-page {
+  min-height: 100vh;
+  padding: 70px 8%;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* ===== Title ===== */
+.chat-title {
+  font-size: 2.3rem;
+  font-family: monospace;
+  color: var(--accent);
+}
+
+/* ===== Chat Box ===== */
+.chat-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+}
+
+/* ===== Messages ===== */
+.chat-message {
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.chat-message.bot {
+  background: rgba(56, 189, 248, 0.18);
+  border-left: 3px solid var(--accent);
+}
+
+.chat-message.user {
+  background: rgba(99, 102, 241, 0.18);
+  border-right: 3px solid var(--accent-strong);
+}
+
+/* ===== Input ===== */
+.chat-input input {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  color: var(--text-main);
+}
+
+.chat-input input::placeholder {
+  color: var(--text-subtle);
+}
+
+/* ===== Links ===== */
+.chat-links a {
+  background: var(--bg-card-soft);
+  color: var(--text-main);
+}
+
+.chat-links a:hover {
+  background: rgba(56, 189, 248, 0.25);
+}
+
+/* ===== Notes ===== */
+.chat-note {
+  color: var(--text-subtle);
+}
