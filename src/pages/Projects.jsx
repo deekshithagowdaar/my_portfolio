@@ -86,9 +86,8 @@ function Projects() {
   const cardRefs = useRef([]);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // 👇 FIX: Always open at top (prevents landing on 6th project)
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
+    window.scrollTo({ top: 0, behavior: "auto" });
   }, []);
 
   useEffect(() => {
@@ -131,14 +130,12 @@ function Projects() {
               ))}
             </div>
 
-            {/* Single GitHub link */}
             {project.link && (
               <a href={project.link} target="_blank" rel="noreferrer">
                 View on GitHub →
               </a>
             )}
 
-            {/* Multiple GitHub links */}
             {project.links && (
               <div className="github-links">
                 {project.links.map((repo, i) => (
@@ -158,10 +155,14 @@ function Projects() {
         ))}
       </div>
 
-      <div className="projects-cta">
-        <p>Curious to know more?</p>
-        <button onClick={() => navigate("/chat")}>
-          Chat with my AI Assistant →
+      {/* Feedback Section */}
+      <div className="projects-feedback">
+        <h3>Share Your Perspective ["Your Thoughts = My Growth"]</h3>
+        <button
+          className="feedback-btn"
+          onClick={() => navigate("/feedback")}
+        >
+          Leave Feedback →
         </button>
       </div>
     </div>

@@ -7,6 +7,7 @@ function Index() {
   const fullText = "Booting my interactive portfolio environment...";
   const navigate = useNavigate();
 
+  // Typing animation
   useEffect(() => {
     let i = 0;
     const timer = setInterval(() => {
@@ -18,6 +19,22 @@ function Index() {
     return () => clearInterval(timer);
   }, []);
 
+  // ✅ Load Chatbase only on Home page
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://www.chatbase.co/embed.min.js";
+    script.id = "z9GGP7DGnqi4jz2gj161I";
+    script.setAttribute("domain", "www.chatbase.co");
+    document.body.appendChild(script);
+
+    return () => {
+      const existingScript = document.getElementById("z9GGP7DGnqi4jz2gj161I");
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
+
   return (
     <div className="home-container">
       <h2 className="welcome-text">
@@ -25,8 +42,6 @@ function Index() {
       </h2>
 
       <h1 className="boot-text">{text}</h1>
-
-      
 
       {text.length === fullText.length && (
         <button
