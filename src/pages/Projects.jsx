@@ -78,6 +78,13 @@ const projectsData = [
     desc: "End-to-end dashboards for data visualization and insights.",
     tech: ["Power BI"],
     link: "https://github.com/deekshithagowdaar/PowerBI_Dashboards"
+  },
+  {
+    title: "Plex Shield - Mobile Security & Privacy Shield",
+    domain: "Mobile Application",
+    desc: "Android app to detect malware, spyware, and data leaks, ensuring user privacy and security.",
+    tech: ["Flutter", "Mobile Security"],
+    link: "https://github.com/deekshithagowdaar/plex_shield"
   }
 ];
 

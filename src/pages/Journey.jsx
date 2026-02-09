@@ -2,6 +2,7 @@ import "./Journey.css";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+/* ✅ DEFINE DATA ONLY ONCE HERE */
 const journeyData = [
   {
     title: "🌱 Semester 1 – 2",
@@ -14,10 +15,16 @@ Started exploring Data Science and Web Development.
 `,
     points: [
       "Static Travel Website (HTML/CSS)",
-      "Joined GLUG & Robotics Club – REVA as a Technical Member",
+      "Joined GLUG & Robotics Club – REVA as Technical Member",
       "IIC Regional Meet Volunteer"
     ],
-    link: "https://github.com/deekshithagowdaar/Travel_Website"
+    links: [
+      {
+        label: "🌍 Static Travel Website",
+        url: "https://github.com/deekshithagowdaar/Travel_Website"
+      }
+    ]
+
   },
   {
     title: "🚀 Semester 3",
@@ -126,15 +133,25 @@ New semesters, new challenges, stronger skills ahead.
   }
 ];
 
+
+  // ... (rest of your semesters here exactly as you wrote)
+
+
 function Journey() {
   const navigate = useNavigate();
   const cardRefs = useRef([]);
   const [visibleIndex, setVisibleIndex] = useState(0);
 
+  /* ✅ Scroll to top */
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  /* ✅ Intersection Observer */
   useEffect(() => {
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVisibleIndex(Number(entry.target.dataset.index));
           }
@@ -143,19 +160,22 @@ function Journey() {
       { threshold: 0.6 }
     );
 
-    cardRefs.current.forEach(card => card && observer.observe(card));
+    cardRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
     return () => observer.disconnect();
   }, []);
 
   return (
     <div className="journey-page">
-      <h1 className="journey-title">My_learning_journey</h1>
+      <h1 className="journey-title">My Learning Journey</h1>
 
       <div className="timeline">
         {journeyData.map((item, index) => (
           <div
             key={index}
-            ref={el => (cardRefs.current[index] = el)}
+            ref={(el) => (cardRefs.current[index] = el)}
             data-index={index}
             className={`journey-card ${
               visibleIndex === index ? "active" : "inactive"
@@ -171,19 +191,6 @@ function Journey() {
               ))}
             </ul>
 
-            {/* Single GitHub link */}
-            {item.link && (
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noreferrer"
-                className="github-link"
-              >
-                View GitHub →
-              </a>
-            )}
-
-            {/* Multiple GitHub links */}
             {item.links && (
               <div className="github-links">
                 {item.links.map((repo, i) => (
@@ -203,7 +210,6 @@ function Journey() {
         ))}
       </div>
 
-      {/* CTA */}
       <div className="journey-cta">
         <p>Want to see what I’ve built through this journey?</p>
         <button onClick={() => navigate("/projects")}>

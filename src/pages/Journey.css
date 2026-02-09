@@ -1,261 +1,205 @@
-/* ===== Page Layout ===== */
+/* =========================
+   JOURNEY PAGE
+========================= */
+
 .journey-page {
   min-height: 100vh;
   padding: 90px 8%;
-  background: radial-gradient(circle at top, #020617, #01030a);
-  color: #e5e7eb;
+  background: var(--bg-main);
+  color: var(--text-main);
 }
 
-/* ===== Title ===== */
+/* =========================
+   TITLE
+========================= */
+
 .journey-title {
-  font-size: 2.4rem;
-  margin-bottom: 80px;
-  color: #38bdf8;
+  font-size: 2.2rem;
+  margin-bottom: 60px;
+  color: var(--accent);
   font-family: monospace;
-  letter-spacing: 0.5px;
+  word-break: break-word;
 }
 
-/* ===== Timeline ===== */
+/* Mobile title fix */
+@media (max-width: 768px) {
+  .journey-title {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
 .timeline {
   display: flex;
   flex-direction: column;
-  gap: 120px;
+  gap: 80px;
   max-width: 900px;
 }
 
-/* ===== Cards ===== */
+/* =========================
+   CARDS
+========================= */
+
 .journey-card {
-  opacity: 0;
-  transform: translateY(60px) scale(0.96);
-  transition:
-    opacity 0.9s ease,
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.4s ease;
-
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.08),
-    rgba(255, 255, 255, 0.03)
-  );
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--card-bg);
+  border: 1px solid var(--border-soft);
   border-radius: 18px;
-  padding: 32px;
-  backdrop-filter: blur(14px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+  padding: 28px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
 }
 
-/* Active card */
 .journey-card.active {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  box-shadow: 0 30px 80px rgba(56, 189, 248, 0.15);
+  box-shadow: 0 25px 60px rgba(56, 189, 248, 0.15);
 }
 
-/* Inactive card */
 .journey-card.inactive {
-  opacity: 0.25;
-  transform: translateY(20px) scale(0.94);
+  opacity: 0.6;
 }
 
-/* ===== Text ===== */
+/* =========================
+   TEXT
+========================= */
+
 .journey-card h2 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-bottom: 6px;
 }
 
 .journey-card h4 {
-  color: #38bdf8;
+  color: var(--accent);
   font-weight: 500;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .journey-card p {
-  color: #cbd5f5;
-  line-height: 1.7;
-  margin-bottom: 16px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 14px;
   font-size: 0.95rem;
   white-space: pre-line;
 }
 
-/* ===== List ===== */
 .journey-card ul {
   padding-left: 18px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .journey-card li {
   margin-bottom: 6px;
   font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
-/* ===== GitHub Links ===== */
+/* =========================
+   PROJECT LINKS (ROW WISE)
+========================= */
+
+/* =========================
+   PROJECT LINKS (VERTICAL)
+========================= */
+
 .github-links {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 14px;
+  flex-direction: column;   /* 🔥 Vertical */
+  gap: 10px;
+  margin-top: 12px;
 }
 
 .github-link {
-  color: #38bdf8;
-  font-size: 0.95rem;
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
   text-decoration: none;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  width: fit-content;       /* Prevent full width */
   transition: all 0.3s ease;
 }
 
 .github-link:hover {
-  color: #7dd3fc;
+  background: var(--accent);
+  color: #000;
   transform: translateX(6px);
 }
 
-/* ===== CTA ===== */
+
+/* =========================
+   CTA SECTION
+========================= */
+
 .journey-cta {
-  margin-top: 120px;
+  margin-top: 100px;
   text-align: center;
 }
 
 .journey-cta p {
-  margin-bottom: 16px;
-  color: #cbd5f5;
+  margin-bottom: 20px;
+  color: var(--text-muted);
+  font-size: 1rem;
 }
 
+/* 🔥 Beautiful Gradient Button */
 .journey-cta button {
   background: linear-gradient(90deg, #38bdf8, #6366f1);
   color: #fff;
   border: none;
-  padding: 14px 28px;
-  border-radius: 12px;
+  padding: 14px 32px;
+  border-radius: 14px;
   font-size: 1rem;
   cursor: pointer;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
 }
 
 .journey-cta button:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(56, 189, 248, 0.45);
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.6);
 }
 
-/* ===== Responsive ===== */
+/* =========================
+   MOBILE FIX
+========================= */
+
 @media (max-width: 768px) {
+
   .journey-page {
     padding: 70px 6%;
   }
 
   .timeline {
-    gap: 80px;
+    gap: 50px;
   }
 
   .journey-card {
-    padding: 24px;
+    padding: 20px;
   }
 
-  .journey-title {
-    font-size: 2rem;
+  .journey-card h2 {
+    font-size: 1.2rem;
   }
-}
 
-.journey-page {
-  min-height: 100vh;
-  background: var(--bg-main);
-  color: var(--text-main);
-}
+  .journey-card p {
+    font-size: 0.85rem;
+  }
 
-/* ===== Page Layout ===== */
-.journey-page {
-  min-height: 100vh;
-  padding: 90px 8%;
-  background: var(--bg-main);
-  color: var(--text-main);
-}
+  .github-links {
+    gap: 8px;
+  }
 
-/* ===== Title ===== */
-.journey-title {
-  font-size: 2.4rem;
-  margin-bottom: 80px;
-  color: var(--accent);
-  font-family: monospace;
-  letter-spacing: 0.5px;
-}
+  .github-link {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
 
-/* ===== Timeline ===== */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 120px;
-  max-width: 900px;
-}
-
-/* ===== Cards ===== */
-.journey-card {
-  opacity: 0;
-  transform: translateY(60px) scale(0.96);
-  transition:
-    opacity 0.9s ease,
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.4s ease;
-
-  background: linear-gradient(
-    135deg,
-    var(--bg-card),
-    var(--bg-card-soft)
-  );
-  border: 1px solid var(--border-soft);
-  border-radius: 18px;
-  padding: 32px;
-  backdrop-filter: blur(14px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-}
-
-/* Active card */
-.journey-card.active {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* Inactive card */
-.journey-card.inactive {
-  opacity: 0.35;
-  transform: translateY(20px) scale(0.95);
-}
-
-/* ===== Text ===== */
-.journey-card h2 {
-  font-size: 1.6rem;
-  margin-bottom: 6px;
-  color: var(--text-main);
-}
-
-.journey-card h4 {
-  color: var(--accent);
-  font-weight: 500;
-  margin-bottom: 16px;
-}
-
-.journey-card p {
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 16px;
-  font-size: 0.95rem;
-  white-space: pre-line;
-}
-
-/* ===== List ===== */
-.journey-card li {
-  color: var(--text-muted);
-}
-
-/* ===== GitHub Links ===== */
-.github-link {
-  color: var(--accent);
-}
-
-.github-link:hover {
-  color: var(--accent-strong);
-}
-
-/* ===== CTA ===== */
-.journey-cta p {
-  color: var(--text-muted);
+  .journey-cta button {
+    width: 85%;
+    font-size: 0.9rem;
+  }
 }
